@@ -1,17 +1,24 @@
 package org.example;
+import java.lang.reflect.InvocationTargetException;
+import java.util.Arrays;
+import java.util.Collections;
+import java.util.Locale;
+import java.util.Scanner;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class Main {
-    public static void main(String[] args) {
-        //TIP Press <shortcut actionId="ShowIntentionActions"/> with your caret at the highlighted text
-        // to see how IntelliJ IDEA suggests fixing it.
-        System.out.printf("Hello and welcome!");
+    public static void main(String[] args) throws IllegalAccessException, InstantiationException, InvocationTargetException, NoSuchMethodException {
+        RandomDTOGenerator generator = new RandomDTOGenerator();
+        DTO randomDto = generator.generateDTO(DTO.class);
 
-        for (int i = 1; i <= 5; i++) {
-            //TIP Press <shortcut actionId="Debug"/> to start debugging your code. We have set one <icon src="AllIcons.Debugger.Db_set_breakpoint"/> breakpoint
-            // for you, but you can always add more by pressing <shortcut actionId="ToggleLineBreakpoint"/>.
-            System.out.println("i = " + i);
-        }
+        System.out.println("Random String: " + randomDto.getStringField());
+        System.out.println("Random Integer: " + randomDto.getIntField());
+        System.out.println("Random Long: " + randomDto.getLongField());
+        System.out.println("Random Short: " + randomDto.getShortField());
+        System.out.println("Random Byte: " + randomDto.getByteField());
+        System.out.println("Random Float: " + randomDto.getFloatField());
+        System.out.println("Random Double: " + randomDto.getDoubleField());
+        System.out.println("Random Boolean: " + randomDto.isBooleanField());
+        System.out.println("Random Char: " + randomDto.getCharField());
+
     }
 }
